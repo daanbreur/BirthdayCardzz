@@ -27,10 +27,147 @@
   <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans&display=swap" rel="stylesheet">
 
   <title>Daanbreur | BirthdayCardzz</title>
+  <script src="https://use.fontawesome.com/7ccab66fd7.js"></script>
+  <style>
+    @font-face {
+      font-family: OpenDyslexic;
+      src: url(web/fonts/OpenDyslexic-Regular.woff );
+    }
+
+    html,
+    body {
+      font-family: "Fredoka One", "sans-serif";
+      color: #ffffff;
+      background-color: #333;
+    }
+
+    .translucent-purple-bg {
+      background-color: rgba(100, 65, 165, 0.5);
+      border-color: rgba(100, 65, 165, 0.5);
+      color: #ccc;
+    }
+
+    .btn-purple-outline {
+      background-color: #fff;
+      border-color: #fff;
+      color: #6441a5;
+    }
+
+    .btn-purple {
+      background-color: #6441a5;
+      border-color: #6441a5;
+      color: #fff;
+    }
+
+    .btn-primary {
+      background-color: #4C97FF;
+      border-color: #4C97FF;
+    }
+
+    .btn-warning {
+      background-color: #ffa600;
+      border-color: #ffa600;
+    }
+
+    a,
+    a:hover {
+      color: #ffa600;
+    }
+
+    :root {
+      --blue: #4C97FF;
+      --primary: #4C97FF;
+      --yellow: #ffa600;
+      --warning: #ffa600;
+    }
+
+    .blocklyTreeLabel {
+      font-family: "Fredoka One", "sans-serif";
+    }
+
+    .blocks-container {
+      position: relative;
+    }
+
+    .blocks-blocker {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.75);
+    }
+
+    #login-group {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      z-index: 1002;
+    }
+
+    #channel-name {
+      padding: .375rem 1.25rem;
+    }
+
+  </style>
 </head>
-<body>
 
+<body class="container">
+  <div class="modal fade" id="confirmReset" tabindex="-1" role="dialog" aria-labelledby="confirmResetLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-dark">
+          <h5 class="modal-title" id="confirmResetLabel">Confirm Reset</h5>
+        </div>
+        <div class="modal-body text-dark">
+          Are you sure you want to reset the card information?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button id="reset-bdanim" class="btn btn-danger">Confirm Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1>BirthdayCardzz by <a href="https://twitch.tv/portaalgaming" target="_blank">Daanbreur</a></h1>
+  <p>Create awesome birthday animations for your friends, family and classmates!</p>
+  <div class="pb-2 row">
+    <div class="col-6">
+      <button id="export-bdanim" class="btn btn-primary"><i class="fa fa-cloud-download"></i> Export Card</button>
+      <button id="share-bdanim" class="btn btn-warning"><i class="fa fa-share-alt"></i> Share Card</button> 
+      <button class="btn btn-danger" data-toggle="modal" data-target="#confirmReset"><i class="fa fa-trash"></i> Reset Card</button>
+    </div>
+    <div class="col-6">
+      <div class="input-group translucent">
+        <div class="input-group-prepend">
+          <span class="input-group-text btn-purple translucent-purple-bg" id="basic-addon1"><i class="fa fa-twitch"></i></span>
+        </div>
+        <input id="channel-name" type="text" class="form-control translucent-purple-bg" placeholder="Channel Name"
+          aria-label="Channel" aria-describedby="basic-addon1">
+        <div class="input-group-append">
+          <button id="run-bdanim" class="btn btn-success float-right" style="width: 10rem;"><i class="fa fa-play"></i>
+            Open Preview</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+  <script>
 
-  
+  </script>
 </body>
+
 </html>
