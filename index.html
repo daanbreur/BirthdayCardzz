@@ -41,6 +41,13 @@
       background-color: #333;
     }
 
+    ul {
+      list-style-type: none;
+    }
+    .nested {display: none;}
+    .active {display: block;}
+    .toggle {}
+
     .translucent-purple-bg {
       background-color: rgba(100, 65, 165, 0.5);
       border-color: rgba(100, 65, 165, 0.5);
@@ -113,6 +120,46 @@
     #channel-name {
       padding: .375rem 1.25rem;
     }
+    .channel-name-quotes {
+  		position: relative;
+  	}
+  	.channel-name-quotes:before,
+  	.channel-name-quotes:after {
+  		content: '';
+  		display: none;
+  		background-repeat: no-repeat;
+  		background-position: center;
+  		background-size: contain;
+  		width: 12px;
+  		height: 12px;
+  		position: absolute;
+  		top: 8px;
+  		z-index: 10;
+  		opacity: 0.75;
+  	}
+  	.channel-name-quotes:before {
+  		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAn0lEQVQI1z3OMa5BURSF4f/cQhAKjUQhuQmFNwGJEUi0RKN5rU7FHKhpjEH3TEMtkdBSCY1EIv8r7nFX9e29V7EBAOvu7RPjwmWGH/VuF8CyN9/OAdvqIXYLvtRaNjx9mMTDyo+NjAN1HNcl9ZQ5oQMM3dgDUqDo1l8DzvwmtZN7mnD+PkmLa+4mhrxVA9fRowBWmVBhFy5gYEjKMfz9AylsaRRgGzvZAAAAAElFTkSuQmCC");
+  	}
+  	.channel-name-quotes:after {
+  		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAqUlEQVQI1z3KvUpCcRiA8ef9E4JNHhI0aFEacm1o0BsI0Slx8wa8gLauoDnoBhq7DcfWhggONDmJJgqCPA7neJ7p934EOOKOnM8Q7PDElo/4x4lFb2DmuUjcUzS3URnGib9qaPNbuXvBO3sGPHJDRG6fGVdMSeWDP2q99FQdFrz26Gu5Tq7dFMzUvbXy8KXeAj57cOklgA+u1B5AoslLtGIHQMaCVnwDnADZIFIrXsoXrgAAAABJRU5ErkJggg==");
+  	}
+  	@media (min-width: 576px) {
+  		.channel-name-quotes:before,
+  		.channel-name-quotes:after {
+  			display: block;
+  		}
+  		.channel-name-quotes:before {
+  			left: 2.875em;
+  		}
+  		.channel-name-quotes:after {
+  			right: 0.175em;
+  		}
+  	}
+  	@media (min-width: 768px) {
+  		.channel-name-quotes:after {
+  			right: 10.275em;
+  		}
+  	}
 
   </style>
 </head>
@@ -141,6 +188,23 @@
       <button id="export-bdanim" class="btn btn-primary"><i class="fa fa-cloud-download"></i> Export Card</button>
       <button id="share-bdanim" class="btn btn-warning"><i class="fa fa-share-alt"></i> Share Card</button> 
       <button class="btn btn-danger" data-toggle="modal" data-target="#confirmReset"><i class="fa fa-trash"></i> Reset Card</button>
+      <br/><br/>
+      <h4 class="text-warning">Settings:</h4>
+      
+      <ul>
+        <li><label><input class="toggle" type="checkbox" data-varName="fw" > Fireworks</label>
+          <ul class="nested">
+            <label><input type="checkbox" data-varName="fw-heart" > Only Heart's</label>
+          </ul>
+        </li>
+        <li><label><input class="toggle" type="checkbox" data-varName="cf" > Confetti</label>
+        </li>
+      </ul>
+
+      </p>
+      <h4 class="text-warning">Debug Data:</h4>
+      <p id="debug-bdanim">
+      </p>
     </div>
     <div class="col-6">
       <div class="input-group translucent">
@@ -151,7 +215,7 @@
           aria-label="Channel" aria-describedby="basic-addon1">
         <div class="input-group-append">
           <button id="run-bdanim" class="btn btn-success float-right" style="width: 10rem;"><i class="fa fa-play"></i>
-            Open Preview</button>
+            Start Preview</button>
         </div>
       </div>
     </div>
@@ -165,6 +229,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
+  <script src="/web/BirthdayCardzz.js"></script>
   <script>
 
   </script>
