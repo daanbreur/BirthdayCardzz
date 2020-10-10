@@ -1,10 +1,11 @@
 class Firework {
 
-  constructor (isHeart = false) {
+  constructor (isHeart = false, noHeart = false) {
     this.exploded = false;
     this.isHeart = isHeart;
-    this.particles = [];    
-    this.firework = new Particle(random(100, (width - 100)), height, true);
+    this.noHeart = noHeart;
+    this.particles = [];
+    this.firework = new FireworkParticle(random(100, (width - 100)), height, true);
   }
 
   isSpent () {
@@ -41,16 +42,16 @@ class Firework {
   }
 
   explode () {
-    if (random(1) < 0.7 && !this.isHeart) {
+    if ((random(1) <= 0.7 && !this.isHeart) || this.noHeart) {
       for (var i = 0; i < 75; i++) {
-          this.particles.push(new Particle(this.firework.pos.x, this.firework.pos.y, false));
+          this.particles.push(new FireworkParticle(this.firework.pos.x, this.firework.pos.y, false));
       }
     } else {
         var scale = random(1.25, 2.55);
         for (var t = 0; t <= TWO_PI; t += 0.065) {
           var x = (16 * pow(sin(t), 3)) * -1;
           var y = (13 * cos(t) - 5 * cos(t * 2) - 2 * cos(t * 3) - cos(t * 4)) * -1;
-          this.particles.push(new Particle(x * scale, y * scale, false, true, this.firework.pos.x, this.firework.pos.y));
+          this.particles.push(new FireworkParticle(x * scale, y * scale, false, true, this.firework.pos.x, this.firework.pos.y));
         }
     }
   }

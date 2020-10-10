@@ -1,4 +1,4 @@
-class Particle {
+class FireworkParticle {
 
   constructor (x, y, rocket, heartRocket, fx, fy) {
     var minBoost = -11;
