@@ -185,19 +185,24 @@
   <p>Create awesome birthday animations for your friends, family and classmates!</p>
   <div class="pb-2 row">
     <div class="col-6">
-      <button id="export-bdanim" class="btn btn-primary"><i class="fa fa-cloud-download"></i> Export Card</button>
+      <!-- <button id="export-bdanim" class="btn btn-primary"><i class="fa fa-cloud-download"></i> Export Card</button> -->
       <button id="share-bdanim" class="btn btn-warning"><i class="fa fa-share-alt"></i> Share Card</button> 
-      <button class="btn btn-danger" data-toggle="modal" data-target="#confirmReset"><i class="fa fa-trash"></i> Reset Card</button>
+      <button id="resetPopup-bdanim" class="btn btn-danger" data-toggle="modal" data-target="#confirmReset"><i class="fa fa-trash"></i> Reset Card</button>
       <br/><br/>
       <h4 class="text-warning">Settings:</h4>
       
       <ul>
-        <li><label><input class="toggle" type="checkbox" data-varName="fw" > Fireworks</label>
+        <li><label><input class="toggle" type="checkbox" data-varName="fw" data-type="checkbox" > Fireworks</label>
           <ul class="nested">
-            <label><input type="checkbox" data-varName="fw-heart" > Only Heart's</label>
+            <label><input type="radio" name="heart" value="" data-type="radio" > Everything</label><br>
+            <label><input type="radio" name="heart" value="fw-heart" data-type="radio" > Only Heart's</label><br>
+            <label><input type="radio" name="heart" value="fw-no-heart" data-type="radio" > No Heart's</label>
           </ul>
         </li>
-        <li><label><input class="toggle" type="checkbox" data-varName="cf" > Confetti</label>
+        <li><label><input class="toggle" type="checkbox" data-varName="cf" data-type="checkbox" > Confetti</label>
+          <ul class="nested">
+            <label><input type="checkbox" data-type="color" > Custom Color <input type="color" data-varName="cf-color" ></label><br>
+          </ul>
         </li>
       </ul>
 
@@ -229,6 +234,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
+  <script src="web/libs/Settings/Settings.js"></script>
   <script src="web/BirthdayCardzz.js"></script>
   <script>
 
