@@ -1,4 +1,4 @@
-let urlParams, options;
+let settings;
 
 let fireworks = [];
 let gravity;
@@ -6,9 +6,10 @@ let wind;
 
 function setup() {
 
-    urlParams = new URLSearchParams(location.search);
-    options = JSON.parse(urlParams.get('options'));
-    console.log(options)
+    let urlParams = new URLSearchParams(location.search);
+    let options = JSON.parse(urlParams.get('options'));
+    settings = new Settings(options)
+    console.log(settings)
 
     createCanvas(windowWidth, windowHeight);
 
@@ -28,14 +29,16 @@ function draw() {
 
 
     // Fireworks
-    if (random(1) < 0.075) {
-        fireworks.push(new Firework(options.heartOnly));
-    }
-    for (let i = fireworks.length - 1; i >= 0; i--) {
-        fireworks[i].update();
-        fireworks[i].show();
-        if (fireworks[i].isSpent()) {
-            fireworks.splice(i, 1);
+    if (settings.get('fireworks', 'enabled')) {
+        if (random(1) < 0.075) {
+            fireworks.push(new Firework(settings.get('fireworks', 'heartOnly'), settings.get('fireworks', 'noHeart')));
+        }
+        for (let i = fireworks.length - 1; i >= 0; i--) {
+            fireworks[i].update();
+            fireworks[i].show();
+            if (fireworks[i].isSpent()) {
+                fireworks.splice(i, 1);
+            }
         }
     }
 
